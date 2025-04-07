@@ -1,0 +1,403 @@
+\section{Using Maple and Mathematica}
+\emph{Note: all solutions below are using Maple 2024 (trial version).}
+
+\begin{exercise}
+    Exercise~\ref{ex:1-1} with Maple.
+\end{exercise}
+\begin{solution}
+    \begin{enumerate}[label=(\alph*)]
+        \item \begin{mapleinput}
+%\prompt% sum(n*x^n, n=0..infinity, formal)
+\end{mapleinput} \begin{mapleoutput}
+               \[\frac{x}{(x-1)^2}\]
+               \end{mapleoutput}   
+        \item \begin{mapleinput}
+%\prompt% sum((alpha*n+beta)*x^n, n=0..infinity, formal) 
+\end{mapleinput} \begin{mapleoutput}
+            \[\frac{(-\beta+\alpha)x+\beta}{(x-1)^2}\] \end{mapleoutput}
+        \item \begin{mapleinput}
+%\prompt% sum(n^2*x^n, n=0..infinity, formal)
+\end{mapleinput} \begin{mapleoutput}
+    \[-\frac{x(x+1)}{(x-1)^3}\]
+\end{mapleoutput}
+        \item \begin{mapleinput}
+%\prompt% sum((alpha*n^2+beta*n+gamma)*x^n, n=0..infinity, 
+  formal)
+\end{mapleinput} \begin{mapleoutput}
+            \[\frac{\left(\beta -\alpha -\gamma \right) x^{2}+\left(-\beta -\alpha +2 \gamma \right) x-\gamma}{\left(x-1\right)^{3}}\]
+        \end{mapleoutput}
+    \item /
+    \item \begin{mapleinput}
+%\prompt% sum(3^n*x^n, n=0..infinity, formal)
+\end{mapleinput} \begin{mapleoutput}
+        \[-\frac{1}{3 x-1}\]
+    \end{mapleoutput}
+    \item \begin{mapleinput}
+%\prompt% sum((5*7^n-3*4^n)*x^n, n=0..infinity, formal)        
+\end{mapleinput} \begin{mapleoutput}
+    \[\frac{x+2}{28 x^{2}-11 x+1}\]
+\end{mapleoutput}
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}
+    Exercise~\ref{ex:1-2} with Maple.
+\end{exercise}
+\begin{solution}
+    \begin{enumerate}[label=(\alph*)]
+        \item \begin{mapleinput}
+%\prompt% sum(n*x^n/n!, n=0..infinity, formal)
+\end{mapleinput} \begin{mapleoutput}
+               \[x e^{x}\]
+               \end{mapleoutput}   
+        \item \begin{mapleinput}
+%\prompt% sum((alpha*n+beta)*x^n/n!, n=0..infinity,
+  formal) 
+\end{mapleinput} \begin{mapleoutput}
+            \[e^x(\alpha x+\beta)\] \end{mapleoutput}
+        \item \begin{mapleinput}
+%\prompt% sum(n^2*x^n/n!, n=0..infinity, formal)
+\end{mapleinput} \begin{mapleoutput}
+    \[xe^x(x+1)\]
+\end{mapleoutput}
+        \item \begin{mapleinput}
+%\prompt% sum((alpha*n^2+beta*n+gamma)*x^n/n!, 
+  n=0..infinity, formal)
+\end{mapleinput} \begin{mapleoutput}
+            \[\left(\alpha  x^{2}+\left(\alpha +\beta \right) x+\gamma \right) e^{x} \]
+        \end{mapleoutput}
+    \item /
+    \item \begin{mapleinput}
+%\prompt% sum(3^n*x^n/n!, n=0..infinity, formal)
+\end{mapleinput} \begin{mapleoutput}
+        \[e^{3x}\]
+    \end{mapleoutput}
+    \item \begin{mapleinput}
+%\prompt% sum((5*7^n-3*4^n)*x^n/n!, n=0..infinity, formal)        
+\end{mapleinput} \begin{mapleoutput}
+    \[5e^{7x}-3e^{4x}\]
+\end{mapleoutput}
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}
+    Exercise~\ref{ex:1-5} with Maple.
+\end{exercise}
+\begin{solution}
+    \begin{enumerate}[label=(\alph*)]
+        \item \begin{mapleinput}
+%\prompt% convert(exp(2*x), FormalPowerSeries, x)
+\end{mapleinput} \begin{mapleoutput}
+    \[\sum_{n=0}^\infty \frac{2^{n} x^{n}}{n!}\]
+\end{mapleoutput}
+        \item \begin{mapleinput}
+%\prompt% convert(exp(alpha*x), FormalPowerSeries, x)
+\end{mapleinput} \begin{mapleoutput}
+    \[\sum_{n=0}^\infty \frac{\alpha^{n} x^{n}}{n!}\]
+\end{mapleoutput}
+    \item \begin{mapleinput}
+%\prompt% convert(sin(x), FormalPowerSeries, x)
+\end{mapleinput} \begin{mapleoutput}
+    \[\sum_{n=0}^\infty \frac{\left(-1\right)^{n} x^{2 n+1}}{\left(2 n+1\right)!}\]
+\end{mapleoutput}
+    \item \begin{mapleinput}
+%\prompt% f := convert(1/((1-a*x)*(1-b*x)), parfrac, x)
+\end{mapleinput} \begin{mapleoutput}
+    \[f\coloneqq -\frac{a}{\left(a-b\right) \left(a x-1\right)}+\frac{b}{\left(a-b\right) \left(b x-1\right)}\]
+\end{mapleoutput} \begin{mapleinput}
+%\prompt% convert(f, FormalPowerSeries, x)
+\end{mapleinput} \begin{mapleoutput}
+    \[\sum_{n=0}^\infty \frac{\left(a^{n+1}-b^{n+1}\right) x^{n}}{a-b}\]
+\end{mapleoutput}
+    \item \begin{mapleinput}
+%\prompt% convert((x^2 + 1)^m, FormalPowerSeries, x) 
+\end{mapleinput} \begin{mapleoutput}
+    \[\sum_{n=0}^\infty \frac{\left(-1\right)^{n} \mathrm{pochhammer}\! \left(-m,n\right) x^{2 n}}{n!}\]
+\end{mapleoutput}
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}
+    Exercise~\ref{ex:1-6} with Maple.
+\end{exercise}
+\begin{solution}
+    \begin{enumerate}[label=(\alph*)]
+        \item \begin{mapleinput}
+%\prompt% sum(rsolve({a(0)=0, a(n + 1)=3*a(n) + 2}, 
+  a(k))*x^k, k=0..infinity, formal)           
+\end{mapleinput} \begin{mapleoutput}
+    \[\frac{2 x}{3 x^{2}-4 x+1}\]
+\end{mapleoutput}
+\item \begin{mapleinput}
+%\prompt% sum(rsolve({a(0)=0, a(n+1)=alpha*a(n)+beta},
+  a(k))*x^k, k=0..infinity, formal)
+\end{mapleinput} \begin{mapleoutput}
+    \[\frac{x \beta}{\left(x-1\right) \left(x \alpha -1\right)}\]
+\end{mapleoutput}
+\item \begin{mapleinput}
+%\prompt% sum(rsolve({a(0)=0, a(1)=1, a(n+2)=2*a(n+1)
+  -a(n)}, a(k))*x^k, k=0..infinity, formal)
+\end{mapleinput} \begin{mapleoutput}
+    \[\frac{x}{\left(x-1\right)^{2}}\]
+\end{mapleoutput}
+\item \begin{mapleinput}
+%\prompt% sum(rsolve({a(0)=0, a(n+1)=a(n)/3+1},
+  a(k))*x^k, k=0..infinity, formal)
+\end{mapleinput} \begin{mapleoutput}
+    \[\frac{3 x}{x^{2}-4 x+3}\]
+\end{mapleoutput}
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}
+    Exercise~\ref{ex:1-8} with Maple.
+\end{exercise}
+\begin{solution}
+    \begin{enumerate}[label=(\alph*)]
+        \item \begin{mapleinput}
+%\prompt% sum(rsolve({a(0)=0, a(n + 1)=3*a(n) + 2}, 
+  a(k))*x^k/k!, k=0..infinity, formal)      
+\end{mapleinput} \begin{mapleoutput}
+    \[e^{3 x}-e^{x}\]
+\end{mapleoutput}
+\item \begin{mapleinput}
+%\prompt% sum(rsolve({a(0)=0, a(n+1)=alpha*a(n)+beta},
+  a(k))*x^k/k!, k=0..infinity, formal)
+\end{mapleinput} \begin{mapleoutput}
+    \[\frac{\beta  e^{x \alpha}}{\alpha -1}-\frac{\beta  e^{x}}{\alpha -1}\]
+\end{mapleoutput}
+\item \begin{mapleinput}
+%\prompt% sum(rsolve({a(0)=0, a(1)=1, a(n+2)=2*a(n+1)
+  -a(n)}, a(k))*x^k/k!, k=0..infinity, formal)
+\end{mapleinput} \begin{mapleoutput}
+    \[xe^x\]
+\end{mapleoutput}
+\item \begin{mapleinput}
+%\prompt% sum(rsolve({a(0)=0, a(n+1)=a(n)/3+1},
+  a(k))*x^k/k!, k=0..infinity, formal)
+\end{mapleinput} \begin{mapleoutput}
+    \[\frac{3 e^{x}}{2}-\frac{3 e^{\frac{x}{3}}}{2}\]
+\end{mapleoutput}
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}
+    Check the first five terms of any five series.
+\end{exercise}
+\begin{solution}
+    \begin{enumerate}
+        \item Checking \eqref{eq:power_bernoulli}.
+        \begin{mapleinput}
+%\prompt% series(x/(exp(x) - 1), x, 8)
+\end{mapleinput} \begin{mapleoutput}
+    \[1-\frac{1}{2} x+\frac{1}{12} x^{2}-\frac{1}{720} x^{4}+\frac{1}{30240} x^{6}+\mathcal{O} \left(x^{7}\right)\]
+\end{mapleoutput}
+        \item Checking \eqref{eq:power_catalan_1}. \begin{mapleinput}
+%\prompt% series(1/(2*x)*(1 - sqrt(1 - 4*x)), x, 6)
+\end{mapleinput} \begin{mapleoutput}
+            \[1+x+2 x^{2}+5 x^{3}+14 x^{4}+\mathcal{O}\left(x^{5}\right)\]
+        \end{mapleoutput}
+        \item Checking \eqref{eq:power_catalan_2}.
+        \begin{mapleinput}
+%\prompt% series(1/sqrt(1 - 4*x), x, 5)
+\end{mapleinput} \begin{mapleoutput}
+    \[1+2 x+6 x^{2}+20 x^{3}+70 x^{4}+\mathcal{O}\left(x^{5}\right)\]
+\end{mapleoutput}
+        \item Checking \eqref{eq:power_tan}.
+\begin{mapleinput}
+%\prompt% series(tan(x), x, 10)
+\end{mapleinput} \begin{mapleoutput}
+    \[x+\frac{1}{3} x^{3}+\frac{2}{15} x^{5}+\frac{17}{315} x^{7}+\frac{62}{2835} x^{9}+\mathcal{O}\left(x^{11}\right)\]
+\end{mapleoutput}
+        \item Checking \eqref{eq:power:xcot}.
+\begin{mapleinput}
+%\prompt% series(x*cot(x), x, 9)
+\end{mapleinput} \begin{mapleoutput}
+    \[1-\frac{1}{3} x^{2}-\frac{1}{45} x^{4}-\frac{2}{945} x^{6}-\frac{1}{4725} x^{8}+\mathcal{O}\left(x^{10}\right)\]
+\end{mapleoutput}
+
+\end{enumerate}
+\end{solution}
+
+\begin{exercise}
+    Exercise~\ref{ex:2-1} with Maple.
+\end{exercise}
+\begin{solution}
+    \begin{enumerate}[label=(\alph*)]
+        \item \begin{mapleinput}
+%\prompt% series(1/cos(x), x, 5)
+\end{mapleinput} \begin{mapleoutput}
+    \[1+\frac{1}{2} x^{2}+\frac{5}{24} x^{4}+\mathcal{O}\left(x^{6}\right)\]
+\end{mapleoutput}
+        \item \begin{mapleinput}
+%\prompt% series(1/(1+x)^m, x, 4)
+\end{mapleinput} \begin{mapleoutput}
+    \begin{align*}
+        &1-m x+\left(\frac{1}{2} m^{2}+\frac{1}{2} m\right) x^{2}+\left(-\frac{m}{3}+\frac{m^{2}}{2}-\frac{m^{3}}{6}+ \right.\\ & \mspace{150mu} \left. \left(\frac{1}{2} m^{2}-\frac{1}{2} m\right) m+
+        \left(-\frac{1}{2} m^{2}-\frac{1}{2} m\right) m\right) x^{3}+\mathcal{O}\left(x^{4}\right)
+    \end{align*}
+\end{mapleoutput}
+        \item \begin{mapleinput}
+%\prompt% series(1/(t^11+t^7+t^5+t^3+t^2+1), t, 5)
+\end{mapleinput} \begin{mapleoutput}
+    \[1-t^{2}-t^{3}+t^{4}+\mathcal{O}\left(t^{5}\right)\]
+\end{mapleoutput}
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}
+    Exercise~\ref{ex:2-2} with Maple.
+\end{exercise}
+\begin{solution}
+    \begin{enumerate}[label=(\alph*)]
+        \item \begin{mapleinput}
+%\prompt% with(powseries):
+%\prompt% f := reversion(powsin(x))
+%\prompt% tpsform(f, x, 5)
+\end{mapleinput}\begin{mapleoutput}
+    \[x+\frac{1}{6} x^{3}+\mathcal{O}\left(x^{5}\right)\]
+\end{mapleoutput} \item \begin{mapleinput}
+%\prompt% with(powseries):
+%\prompt% tpsform(reversion(evalpow(powtan(x))), x, 5)
+\end{mapleinput} \begin{mapleoutput}
+    \[x-\frac{1}{3} x^{3}+\mathcal{O}\left(x^{5}\right)\]
+\end{mapleoutput} \item \begin{mapleinput}
+%\prompt% with(powseries):
+%\prompt% tpsform(evalpow(x + x^2*powsqrt(1 + x)), x, 5)
+\end{mapleinput} \begin{mapleoutput}
+\[x+x^{2}+\frac{1}{2} x^{3}-\frac{1}{8} x^{4}+\mathcal{O}\left(x^{5}\right)\]
+\end{mapleoutput} \begin{mapleinput}
+%\prompt% tpsform(reversion(evalpow(x + x^2 + 1/2*x^3
+  - 1/8*x^4)), x, 5)
+\end{mapleinput} \begin{mapleoutput}
+\[x-x^{2}+\frac{3}{2} x^{3}-\frac{19}{8} x^{4}+\mathcal{O}\left(x^{5}\right)\]
+\end{mapleoutput}\item \begin{mapleinput}
+%\prompt% with(powseries):
+%\prompt% tpsform(reversion(evalpow(x^3 + x)), x, 5)
+\end{mapleinput} \begin{mapleoutput}
+    \[x-x^{3}+\mathcal{O}\left(x^{5}\right)\]
+\end{mapleoutput} \item \begin{mapleinput}
+%\prompt% with(powseries):
+%\prompt% f := log(1 - t)
+%\prompt% g := solve(x = f, t)
+%\prompt% tpsform(evalpow(g), x, 5)
+\end{mapleinput} \begin{mapleoutput}
+\[-x-\frac{1}{2} x^{2}-\frac{1}{6} x^{3}-\frac{1}{24} x^{4}+\mathcal{O}\left(x^{5}\right)\]
+\end{mapleoutput}
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}
+    Exercise~\ref{ex:2-4} with Maple.
+\end{exercise}
+\begin{solution}
+    \begin{enumerate}[label=(\alph*)]
+        \item \begin{mapleinput}
+%\prompt% sum((n+7)*x^n, n = 0..infinity, formal)
+\end{mapleinput} \begin{mapleoutput}
+    \[\frac{-6 x+7}{\left(x-1\right)^{2}}\]
+\end{mapleoutput}
+\item \begin{mapleinput}
+%\prompt% sum(x^n, n = 4..infinity, formal)
+\end{mapleinput} \begin{mapleoutput}
+    \[-\frac{x^{4}}{x-1}\]
+\end{mapleoutput} \item \begin{mapleinput}
+%\prompt% sum(x^(2*n), n = 0..infinity, formal)
+\end{mapleinput} \begin{mapleoutput}
+    \[-\frac{1}{x^{2}-1}\]
+\end{mapleoutput} \item \begin{mapleinput}
+%\prompt% sum(x^n/(n+1), n = 2..infinity, formal)
+\end{mapleinput} \begin{mapleoutput}
+    \[-\frac{\ln\! \left(1-x\right)}{x}-1-\frac{x}{2}\]
+\end{mapleoutput} \item \begin{mapleinput}
+%\prompt% sum(x^n/(n+5)!, n = 0..infinity, formal)
+\end{mapleinput} \begin{mapleoutput}
+    \[\frac{-\frac{x^{4}}{24}-\frac{x^{3}}{6}-\frac{x^{2}}{2}-x-1+e^{x}}{x^{5}}\]
+\end{mapleoutput} \item \begin{mapleinput}
+%\prompt% sum(rsolve({f(0)=0, f(1)=1, f(n+2)=f(n+1)+f(n)}, 
+  f(k))*k*x^k, k = 0..infinity, formal);
+\end{mapleinput} \begin{mapleoutput}
+    \[\frac{x \left(x^{2}+1\right)}{\left(x^{2}+x-1\right)^{2}}\]
+\end{mapleoutput} \item \begin{mapleinput}
+%\prompt% sum((n^2+n+1)*x^n/n!, n = 1..infinity, formal)
+\end{mapleinput} \begin{mapleoutput}
+    \[-1+\left(1+x\right)^{2} e^{x}\]
+\end{mapleoutput}
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}
+    Use the ``series'' command to find the first 15 values of $g(n)$ of
+    \[
+        \bsum[n] g(n)\expcoeff = \frac{e^{-\frac12x-\frac14x^2}}{\sqrt{1-x}}.
+    \]
+\end{exercise}
+\begin{solution}
+\begin{mapleinput}
+%\prompt% with(gfun):
+%\prompt% L := seriestolist(series(exp(-1/2*x - 
+  1/4*x^2)/sqrt(1 - x), x, 15))
+%\prompt% listtolist(L, 'Laplace')
+\end{mapleinput}
+\begin{mapleoutput}
+    \[
+        \resizebox{\hsize}{!}{[1,0,0,1,3,12,70,465,3507,30016,286884, 3026655,34944085,438263364,5933502822]}
+    \]
+\end{mapleoutput}
+\end{solution}
+
+\begin{exercise}
+    From
+    \[
+        \bsum[n] \frac{t_n}{n!}x^n = e^{x+\frac12 x^2},
+    \]
+    tabulate the number of involutions of $n$ letters, for $n \leq 15$.
+\end{exercise}
+\begin{solution}
+\begin{mapleinput}
+%\prompt% with(gfun):
+%\prompt% L := seriestolist(series(exp(x + 1/2*x^2), x, 15))
+%\prompt% listtolist(L, 'Laplace')
+\end{mapleinput}
+\begin{mapleoutput}
+    \[
+        [1, 1, 2, 4, 10, 26, 76, 232, 764, 2620, 9496, 35696, 140152, 568504, 2390480]
+    \]  
+\end{mapleoutput}
+\end{solution}
+
+\begin{exercise}
+    Use the asymptotics capability of Maple to find the first $5$ terms of the asymptotic expansions of the following.
+    \begin{enumerate}[label=(\alph*)]
+        \item $(1+1/\sqrt{n})^n$
+        \item $\sqrt{n!}$
+        \item $(1+1/n)^{\sqrt{n}}$
+        \item $\sin(\sin 1/x)$
+    \end{enumerate}
+\end{exercise}
+\begin{solution}
+    \begin{enumerate}[label=(\alph*)]
+        \item \begin{mapleinput}
+%\prompt% asympt((1 + 1/sqrt(n))^n, n, 2)    
+\end{mapleinput} \begin{mapleoutput}
+    \[
+        \left(e^{-\frac{1}{2}}+\frac{e^{-\frac{1}{2}} \sqrt{\frac{1}{n}}}{3}-\frac{7 e^{-\frac{1}{2}}}{36 n}+\frac{199 e^{-\frac{1}{2}} \left(\frac{1}{n}\right)^{\frac{3}{2}}}{1620}-\frac{3193 e^{-\frac{1}{2}}}{38880 n^{2}}+\mathcal{O}\left(\frac{1}{n^{\frac52}}\right)\right) e^{\frac{1}{\sqrt{\frac{1}{n}}}}
+    \]  
+\end{mapleoutput} \item \begin{mapleinput}
+%\prompt% asympt(sqrt(n!), n, 5)
+\end{mapleinput} \begin{mapleoutput}
+    \begin{align*}
+        &\left(\frac{2^{\frac{1}{4}} \pi^{\frac{1}{4}}}{\left(\frac{1}{n}\right)^{\frac{1}{4}}}+\frac{2^{\frac{1}{4}} \pi^{\frac{1}{4}} \left(\frac{1}{n}\right)^{\frac{3}{4}}}{24}+\frac{2^{\frac{1}{4}} \pi^{\frac{1}{4}} \left(\frac{1}{n}\right)^{\frac{7}{4}}}{1152}-\frac{571 \,2^{\frac{1}{4}} \pi^{\frac{1}{4}} \left(\frac{1}{n}\right)^{\frac{11}{4}}}{414720} \right. \\
+        &\mspace{180mu}\left.-\frac{2299 \,2^{\frac{1}{4}} \pi^{\frac{1}{4}} \left(\frac{1}{n}\right)^{\frac{15}{4}}}{39813120}+\mathcal{O}\left(\left(\frac{1}{n}\right)^{\frac{19}{4}}\right)\right) \sqrt{\frac{1}{\left(\frac{1}{n}\right)^{n} e^{n}}}
+    \end{align*}
+\end{mapleoutput} \item \begin{mapleinput}
+%\prompt% asympt((1 + 1/n)^sqrt(n), n, 3)
+\end{mapleinput} \begin{mapleoutput}
+    \[1+\sqrt{\frac{1}{n}}+\frac{1}{2 n}-\frac{\left(\frac{1}{n}\right)^{\frac{3}{2}}}{3}-\frac{11}{24 n^{2}}+\frac{11 \left(\frac{1}{n}\right)^{\frac{5}{2}}}{120}+\mathcal{O}\left(\frac{1}{n^{3}}\right)\]
+\end{mapleoutput} \item \begin{mapleinput}
+%\prompt% asympt(sin(sin(1/x)), x, 10)
+\end{mapleinput} \begin{mapleoutput}
+    \[\frac{1}{x}-\frac{1}{3 x^{3}}+\frac{1}{10 x^{5}}-\frac{8}{315 x^{7}}+\frac{13}{2520 x^{9}}+\mathcal{O}\left(\frac{1}{x^{11}}\right)\]
+\end{mapleoutput}
+    \end{enumerate}
+\end{solution}

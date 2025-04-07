@@ -1,0 +1,111 @@
+\section*{List of formulas}
+\subsection*{Power series}
+\begin{equation} \label{eq:power_geom}
+    \frac{1}{1-x} = \bsum x^n
+\end{equation}
+\begin{equation} \label{eq:power_loggeom}
+    \log \frac{1}{1-x} = \sum_{n=1}^{\infty} \frac{x^n}{n}
+\end{equation}
+\begin{equation} \label{eq:power_exp}
+    e^x = \bsum \frac{x^n}{n!}
+\end{equation}
+\begin{equation} \label{eq:power_sin}
+    \sin x = \bsum (-1)^n \frac{x^{2n+1}}{(2n+1)!}
+\end{equation}
+\begin{equation} \label{eq:power_cos}
+    \cos x = \bsum (-1)^n \frac{x^{2n}}{(2n)!}
+\end{equation}
+\begin{equation} \label{eq:power_sinh}
+    \sinh x = \bsum \frac{x^{2n+1}}{(2n+1)!}
+\end{equation}
+\begin{equation} \label{eq:power_cosh}
+    \cosh x = \bsum \frac{x^{2n}}{(2n)!}
+\end{equation}
+\begin{equation} \label{eq:binom_num}
+    (1+x)^{\alpha} = \infsum[k] \binom{\alpha}{k}x^k
+\end{equation}
+\begin{equation} \label{eq:binom_num2}
+    (x+y)^{\alpha} = \infsum[k] \binom{\alpha}{k}y^kx^{\alpha - k}
+\end{equation}
+\begin{equation} \label{eq:binom_denom}
+    \frac{1}{(1-x)^{k+1}} = \infsum \binom{n+k}{n}x^n
+\end{equation}
+\begin{equation} \label{eq:binom_denom_num_single}
+    \frac{x^k}{(1-x)^{k+1}} = \bsum[r] \binom{r}{k}x^r, \quad k\in\mathbb{N}
+\end{equation}
+\begin{equation} \label{eq:power_bernoulli}
+    \frac{x}{e^x-1} = \bsum \frac{B_nx^n}{n!}
+\end{equation}
+\begin{equation} \label{eq:power_tan_inv}
+    \tan^{-1}x = \bsum (-1)^n \frac{x^{2n+1}}{2n+1}
+\end{equation}
+\begin{equation} \label{eq:power_catalan_1}
+    \frac{1}{2x}(1-\sqrt{1-4x}) = \infsum[n] \frac{1}{n+1} \binom{2n}{n}x^n 
+\end{equation}
+\begin{equation} \label{eq:power_catalan_2}
+    \frac{1}{\sqrt{1-4x}} = \infsum[k] \binom{2k}{k}x^k
+\end{equation}
+\begin{equation} \label{eq:stSnd}
+    \frac{x^k}{(1-x)(1-2x)\cdots (1-kx)} = \bsum \stirlingSnd{n}{k}x^n
+\end{equation}
+\begin{align} \label{eq:power_tan}
+    \tan x &= \sum_{r=1}^\infty (-1)^{r-1}\frac{2^{2r}(2^{2r}-1)B_{2r}}{(2r)!}x^{2r-1} \\
+    &=  x + \frac{x^3}{3} + \frac{2x^5}{15} + \frac{17x^7}{315} + \frac{62x^9}{2835} + \ldots \notag
+\end{align}
+\begin{align} \label{eq:power:xcot}
+    x\cot x &= \bsum[k] \frac{(-4)^kB_{2k}}{(2k)!}x^{2k} \\
+    &= 1-\frac{x^2}{3} - \frac{x^4}{45} - \frac{2x^6}{945} - \frac{x^8}{4725} - \ldots \notag
+\end{align}
+
+\subsection*{Common Identities and Theorems}
+\begin{equation} \label{eq:xD} \tag{$xD$}
+    (xD) x^n = nx^n, \quad  n \in \mathbb{N} \quad (D \textnormal{ denotes derivative})
+\end{equation}
+\begin{equation} \label{eq:bin_sym}
+    \binom{n}{k} = \binom{n}{n-k}, \quad  k\in\mathbb{Z}, n \in\mathbb{N} 
+\end{equation}
+\begin{equation} \label{eq:div_swap}
+    \sum_{d\vert n} f(d) = \sum_{d\vert n} f\left(\frac{n}{d}\right), \quad  n \in\mathbb{N}
+\end{equation}
+\begin{equation} \label{eq:power_zeta}
+    \zeta(s) = \sum_{n=1}^\infty \frac{1}{n^s} = \prod_{\textnormal{$p$ prime}} \frac{1}{1-p^{-s}}
+\end{equation}
+\begin{equation} \label{eq:sieve} \tag{sieve}
+    E(x) = N(x-1), \quad (\textnormal{See Chapter 4.2})
+\end{equation}
+\begin{equation} \label{eq:binom_asymp}
+    \binom{n-\alpha-1}{n} \approx \frac{n^{-\alpha-1}}{\Gamma(-\alpha)} \left[1 + \frac{\alpha(\alpha +1)}{2n} + \frac{\alpha(\alpha+1)(\alpha+2)(3\alpha+1)}{24n^2} + \cdots\right]
+\end{equation}
+\begin{theorem} \label{thm:conv_power}
+    There exists a number $R$, $0\leq R \leq +\infty$, called the radius of convergence of the series $f$, such that the series converges for all values of $z$ with $|z|<R$ and diverges for all $z$ such that $|z|>R$. The number $R$ is expressed in terms of the sequence $\{a_n\}_0^\infty$ of coefficients of the series by means of
+    \[
+        R = \frac{1}{\limsup_{n\to\infty} |a_n|^{1/n}} \qquad (1/0=\infty;\ 1/\infty = 0).
+    \]
+\end{theorem}
+\begin{theorem} \label{thm:euler_prod}
+    Let $f$ be a multiplicative number-theoretic function. Then we have the formal identity
+    \[
+        \sum_{n=1}^\infty \frac{f(n)}{n^s} = \prod_p \left\{1+f(p)p^{-s} + f(p^2)p^{-2s} + f(p^3)p^{-3s} + \cdots\right\}
+    \]
+    in which the product on the right extends over all prime numbers $p$.
+\end{theorem}
+\begin{theorem} \label{thm:lif}
+    \textbf{(The Lagrange inversion formula.)} Let $f(u)$ and $\phi(u)$ be formal power series in $u$, with $\phi(0)=1$. Then there is a unique formal power series $u=u(t)$ that satisfies $u=t\phi(u)$. Further, the value $f(u(t))$ of $f$ at that root $u=u(t)$, when expanded in a power series in $t$ about $t=0$, satisfies
+    \[
+        \coeff{t^n} {f(u(t))} = \frac{1}{n}\coeff{u^{n-1}} {f'(u)\phi(u)^n}.
+    \]
+\end{theorem}
+\begin{theorem} \label{thm:darboux}
+    \textbf{(Darboux)} Let $v(z)$ be analytic in some disk $|z|<1+\eta$, and suppose that in a neighborhood of $z=1$ it has the expansion $v(z) = \bsum[j] v_j(1-z)^j$. Let $\beta\notin\{0,1,2,\ldots\}$. Then
+    \begin{align*}
+        \coeff{z^n}\{(1-z)^\beta v(z)\} &= \coeff{z^n} \left\{\sum_{j=0}^m v_j(1-z)^{\beta+j}\right\} + \mathcal{O}(n^{-m-\beta-2}) \\
+        &= \sum_{j=0}^m v_j \binom{n-\beta -j-1}{n} + \mathcal{O}(n^{-m-\beta-2}).
+    \end{align*}
+\end{theorem}
+\begin{theorem} \label{thm:hayman}
+    \textbf{(Hayman)} Let $f(z)=\sum a_nz^n$ be an admissible function. Let $r_n$ be the positive real root of the equation $a(r_n)=n$, for each $n=1,2,\ldots,$ where $a(r)=r \frac{f'(r)}{f(r)}$. Then
+    \[
+        a_n \sim \frac{f(r_n)}{r_n^n\sqrt{2\pi b(r_n)}} \qquad \textnormal{as $n\to+\infty,$}
+    \]
+    where $b(r)=ra'(r)$.
+\end{theorem}
